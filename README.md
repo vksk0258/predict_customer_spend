@@ -52,13 +52,13 @@ Snowpark의 간단한 입문 자습서. 데이터 캡처, 데이터 과학 및 S
 
 1. 터미널을 열고 이 리포지토리를 복제하거나 GitHub 데스크톱을 사용합니다. 이는 Snowflakecorp 조직의 일부이므로 복제하기 전에 인증을 설정해야 합니다.
 
-      "git clone https://github.com/Snowflake-Labs/snowpark-python-demos"
+      "git clone https://github.com/vksk0258/predict_customer_spend"
 
 2. Predict Customer Spend 디렉토리로 이동하여 JupyterLab을 시작합니다.
 
       「쥬피터 랩」
 
-3. 브라우저 창에 URL을 붙여넣고 JupyterLab이 시작되면 작업 디렉토리로 전환하여 creds_generic.json을 업데이트하고 눈송이 환경을 반영하도록 이름을 creds.json으로 변경합니다.
+3. 브라우저 창에 URL을 붙여넣고 JupyterLab이 시작되면 작업 디렉토리로 전환하여 connection.json을 업데이트하고 Snowflake 환경을 반영하도록 변경합니다.
 
 4. streamlit (ecommapp)을 실행하려면 터미널에서 streamlit run ecommapp.py를 실행합니다.
      앱은 다음과 같습니다.
