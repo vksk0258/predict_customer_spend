@@ -12,7 +12,7 @@ session = Session.builder.configs(connection_parameters).create()
 
 # %%
 # Header
-head1, head2 = st.columns([8, 3])
+head1, head2 = st.columns([8, 2])
 
 with head1:
     st.header("Customer Spend Prediction Model")
