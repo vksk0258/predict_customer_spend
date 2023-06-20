@@ -12,14 +12,12 @@ session = Session.builder.configs(connection_parameters).create()
 
 # %%
 # Header
-head1, head2 = st.columns([8, 1])
+head1, head2 = st.columns([8, 3])
 
 with head1:
     st.header("Customer Spend Prediction Model")
 with head2:
-    st.markdown(
-        f' <img src="https://api.nuget.org/v3-flatcontainer/snowflake.data/0.1.0/icon" width="50" height="50"> ',
-        unsafe_allow_html=True)
+    st.image("dk.png",width=200)
 
 st.markdown('##')
 st.markdown('##')
