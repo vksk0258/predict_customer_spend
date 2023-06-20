@@ -1,0 +1,9 @@
+{
+    "account": "hc38706.ap-northeast-2.aws",
+    "user": "vksk0258",
+    "password": "Vlsl0258!",
+    "role": "ACCOUNTADMIN",
+    "database": "SNOWPARK_TEST",
+    "schema": "PUBLIC",
+    "warehouse": "COMPUTE_WH"
+ }
