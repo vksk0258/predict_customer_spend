@@ -1,1 +1,1 @@
-snowflake-snowpark-python==0.11.0
+snowflake-snowpark-python[pandas]
