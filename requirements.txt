@@ -1,2 +1,2 @@
 snowflake-snowpark-python[pandas]
-utilib3==1.21.1
+urllib3==1.21.1
