@@ -4,7 +4,6 @@ import pandas as pd
 import altair as alt
 from snowflake.snowpark.session import Session
 from snowflake.snowpark.functions import *
-import matplotlib.pyplot as plt
 import json
 
 
