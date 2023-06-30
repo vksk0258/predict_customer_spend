@@ -99,14 +99,14 @@ with col3:
     ).select(trunc(min(col('PREDICTED_SPEND'))), trunc(max(col('PREDICTED_SPEND')))).toPandas().iloc[0, ]
 
     st.write('#### 쇼핑몰 고객 연간 소비액 예측')
-    met1,ans1,met2,emp1 = st.columns([5,1,5,12])
+    met1,ans1,met2,emp1 = st.columns([4,1,4,12])
     with met1:
-        st.metric(label="최소", value=f"${minspend}", label_visibility="collapsed")
+        st.metric(label="최소", value=f"${int(minspend)}", label_visibility="collapsed")
         st.write("<h5 style='text-align: center;'>최소</h5>", unsafe_allow_html=True)
     with ans1:
         st.markdown('### ~')
     with met2:
-        st.metric(label="최대", value=f"${maxspend}", label_visibility="collapsed")
+        st.metric(label="최대", value=f"${int(maxspend)}", label_visibility="collapsed")
         st.write("<h5 style='text-align: center;'>최대</h5>", unsafe_allow_html=True)
 
     st.markdown("---")
