@@ -20,7 +20,7 @@ st.markdown(
     """
 <style>
 [data-testid="stMetricValue"] {
-    font-size: 37px;
+    font-size: 37px;S
     color: #000080;
     border : 2px solid;
     font-weight : bold;
@@ -51,14 +51,14 @@ customer_df = session.table('PREDICTED_CUSTOMER_SPEND')
 
 # Read Data
 minasl, maxasl, mintoa, maxtoa, mintow, maxtow, minlom, maxlom = customer_df.select(
-    floor(min(col("Avg. Session Length"))),
-    ceil(max(col("Avg. Session Length"))),
-    floor(min(col("Time on App"))),
-    ceil(max(col("Time on App"))),
-    floor(min(col("Time on Website"))),
-    ceil(max(col("Time on Website"))),
-    floor(min(col("Length of Membership"))),
-    ceil(max(col("Length of Membership")))
+    floor(min(col("SESSION_LENGTH"))),
+    ceil(max(col("SESSION_LENGTH"))),
+    floor(min(col("TIME_ON_APP"))),
+    ceil(max(col("TIME_ON_APP"))),
+    floor(min(col("TIME_ON_WEBSITE"))),
+    ceil(max(col("TIME_ON_WEBSITE"))),
+    floor(min(col("LENGTH_OF_MEMBERSHIP"))),
+    ceil(max(col("LENGTH_OF_MEMBERSHIP")))
 ).toPandas().iloc[0, ]
 
 minasl = int(minasl)
@@ -91,20 +91,20 @@ with col3:
     st.markdown('###')
 
     minspend, maxspend = customer_df.filter(
-        (col("Avg. Session Length") <= asl[1]) & (
-            col("Avg. Session Length") > asl[0])
-        & (col("Time on App") <= toa[1]) & (col("Time on App") > toa[0])
-        & (col("Time on Website") <= tow[1]) & (col("Time on Website") > tow[0])
-        & (col("Length of Membership") <= lom[1]) & (col("Length of Membership") > lom[0])
+        (col("SESSION_LENGTH") <= asl[1]) & (
+            col("SESSION_LENGTH") > asl[0])
+        & (col("TIME_ON_APP") <= toa[1]) & (col("TIME_ON_APP") > toa[0])
+        & (col("TIME_ON_WEBSITE") <= tow[1]) & (col("TIME_ON_WEBSITE") > tow[0])
+        & (col("LENGTH_OF_MEMBERSHIP") <= lom[1]) & (col("LENGTH_OF_MEMBERSHIP") > lom[0])
     ).select(trunc(min(col('PREDICTED_SPEND'))), trunc(max(col('PREDICTED_SPEND')))).toPandas().iloc[0, ]
 
     st.write('#### 쇼핑몰 고객 연간 소비액 예측')
-    met1,ans1,met2,emp1 = st.columns([4,1,4,12])
+    met1,ans1,met2,emp1 = st.columns([4,1,4,10])
     with met1:
         st.metric(label="최소", value=f"${int(minspend)}", label_visibility="collapsed")
         st.write("<h5 style='text-align: center;'>최소</h5>", unsafe_allow_html=True)
     with ans1:
-        st.markdown('### ~')
+        st.write("<h5 style='text-align: center; font-size: 50px;'><strong>~</strong></h5>", unsafe_allow_html=True)
     with met2:
         st.metric(label="최대", value=f"${int(maxspend)}", label_visibility="collapsed")
         st.write("<h5 style='text-align: center;'>최대</h5>", unsafe_allow_html=True)
