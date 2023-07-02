@@ -24,6 +24,7 @@ st.markdown(
     color: #000080;
     border : 2px solid;
     font-weight : bold;
+    text-align: center;
 }
 """,
     unsafe_allow_html=True,
@@ -102,12 +103,12 @@ with col3:
     met1,ans1,met2,emp1 = st.columns([4,1,4,10])
     with met1:
         st.metric(label="최소", value=f"${int(minspend)}", label_visibility="collapsed")
-        st.write("<h5 style='text-align: center;'>최소</h5>", unsafe_allow_html=True)
+        st.write("<h5 style='text-align: center; color: #000080; '>최소</h5>", unsafe_allow_html=True)
     with ans1:
-        st.write("<h5 style='text-align: center; font-size: 50px;'><strong>~</strong></h5>", unsafe_allow_html=True)
+        st.write("<h5 style='text-align: center; font-size: 50px; color: #000080;'><strong>~</strong></h5>", unsafe_allow_html=True)
     with met2:
         st.metric(label="최대", value=f"${int(maxspend)}", label_visibility="collapsed")
-        st.write("<h5 style='text-align: center;'>최대</h5>", unsafe_allow_html=True)
+        st.write("<h5 style='text-align: center; color: #000080; '>최대</h5>", unsafe_allow_html=True)
 
     st.markdown("---")
     st.write("\n#### 특성 중요도 그래프")
