@@ -209,7 +209,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
-# 스크롤이 없는 컨텐츠를 출력
-st.write("# 스크롤이 없는 컨텐츠")
-st.write("이 내용은 스크롤 없이 보입니다.")
