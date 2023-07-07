@@ -160,12 +160,13 @@ with col1:
     text_chart = alt.Chart(data).mark_text(
         align='left',
         baseline='middle',
-        dx=1,  # 텍스트와 막대 사이의 거리
-        fontSize=14  # 폰트 크기 설정
+        dx=1,
+        fontSize=14,
+        color='black',  # 텍스트 색상을 검은색으로 설정
     ).encode(
-        x=alt.X('Value:Q', title='상대 값'),  # x축 변경
-        y=alt.Y('Variable:N', sort=None, title=None),  # y축 타이틀 제거 및 칸 간격 조정
-        text=alt.Text('Value:Q', format='.2f')
+        x=alt.X('Value:Q', title='상대 값'),
+        y=alt.Y('Variable:N', sort=None, title=None),
+        text=alt.Text('Value:Q', format='.2f'),
     ).properties(
         width=300,  # 그래프 너비 설정
         height=200  # 그래프 높이 설정
