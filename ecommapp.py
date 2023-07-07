@@ -149,7 +149,7 @@ with col1:
     # 막대 그래프 생성
     bar_chart = alt.Chart(data).mark_bar().encode(
         x=alt.X('Value:Q', title='상대 값', scale=alt.Scale(domain=(0, 0.8))),  # x축 변경 및 막대의 범위 축소
-        y=alt.Y('Variable:N', sort=None, title=None, axis=alt.Axis(labelFontSize=11, labelPadding=10)),  # y축 타이틀 제거 및 칸 간격 조정
+        y=alt.Y('Variable:N', sort=None, title=None, axis=alt.Axis(labelFontSize=11, labelPadding=10, labelColor='black')),  # y축 타이틀 제거 및 칸 간격 조정
         color=alt.Color('Variable:N', legend=None),
     ).properties(
         width=300,  # 그래프 너비 설정
