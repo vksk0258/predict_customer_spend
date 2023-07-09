@@ -15,6 +15,7 @@ session = Session.builder.configs(connection_parameters).create()
 
 st.set_page_config(layout="wide")
 
+
 st.markdown(
     """
 <style>
@@ -43,6 +44,14 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+st.markdown("""
+    <style>
+    .css-15zrgzn {display: none}
+    .css-eczf16 {display: none}
+    .css-jn99sy {display: none}
+    </style>
+    """, unsafe_allow_html=True)
 
 
 # %%
@@ -83,10 +92,10 @@ maxlom = int(maxlom)
 
 # Column 1
 with col1:
-    st.markdown("## Search")
-    st.write("###### Web 평균 이용 시간 (분)")
+    st.write("<h2>Search</h2>", unsafe_allow_html=True)
+    st.write("<h6>Web 평균 이용 시간 (분)</h6>", unsafe_allow_html=True)
     tow = st.slider("Time on Website", mintow, maxtow, (mintow, mintow+5), 1,label_visibility="collapsed")
-    st.write("###### App 평균 이용 시간 (분)")
+    st.write("<h6>App 평균 이용 시간 (분)</h6>", unsafe_allow_html=True)
     toa = st.slider("Time on App", mintoa, maxtoa, (mintoa, mintoa+5), 1,label_visibility="collapsed")
 
     
@@ -97,9 +106,9 @@ with col2:
     st.markdown("######")
     st.markdown("######")
 
-    st.write("###### 매장 평균 이용 시간 (분)")
+    st.write("<h6>매장 평균 이용 시간 (분)</h6>", unsafe_allow_html=True)
     asl = st.slider("Session Length", minasl, maxasl, (minasl, minasl+5), 1,label_visibility="collapsed")
-    st.write("###### 맴버쉽 가입 년 수")
+    st.write("<h6>맴버쉽 가입 년 수</h6>", unsafe_allow_html=True)
     lom = st.slider("Length of Membership", minlom,
                     maxlom, (minlom, minlom+4), 1,label_visibility="collapsed")
     
@@ -107,24 +116,27 @@ with col2:
 with col3:
     st.markdown("## Predict")
 
-    minspend, maxspend = customer_df.filter(
-        (col("SESSION_LENGTH") <= asl[1]) & (
-            col("SESSION_LENGTH") > asl[0])
-        & (col("TIME_ON_APP") <= toa[1]) & (col("TIME_ON_APP") > toa[0])
-        & (col("TIME_ON_WEBSITE") <= tow[1]) & (col("TIME_ON_WEBSITE") > tow[0])
-        & (col("LENGTH_OF_MEMBERSHIP") <= lom[1]) & (col("LENGTH_OF_MEMBERSHIP") > lom[0])
-    ).select(trunc(min(col('PREDICTED_SPEND'))), trunc(max(col('PREDICTED_SPEND')))).toPandas().iloc[0, ]
+    try:
+        minspend, maxspend = customer_df.filter(
+            (col("SESSION_LENGTH") <= asl[1]) & (
+                col("SESSION_LENGTH") > asl[0])
+            & (col("TIME_ON_APP") <= toa[1]) & (col("TIME_ON_APP") > toa[0])
+            & (col("TIME_ON_WEBSITE") <= tow[1]) & (col("TIME_ON_WEBSITE") > tow[0])
+            & (col("LENGTH_OF_MEMBERSHIP") <= lom[1]) & (col("LENGTH_OF_MEMBERSHIP") > lom[0])
+        ).select(trunc(min(col('PREDICTED_SPEND'))), trunc(max(col('PREDICTED_SPEND')))).toPandas().iloc[0, ]
 
-    st.write('#### 쇼핑몰 고객 연간 소비액 예측')
-    met1,ans1,met2,emp1 = st.columns([4,1,4,10])
-    with met1:
-        st.metric(label="최소", value=f"${int(minspend)}", label_visibility="collapsed")
-        st.write("<h5 style='text-align: center; color: #000080; '>최소</h5>", unsafe_allow_html=True)
-    with ans1:
-        st.write("<h5 style='text-align: center; font-size: 50px; color: #000080;'><strong>~</strong></h5>", unsafe_allow_html=True)
-    with met2:
-        st.metric(label="최대", value=f"${int(maxspend)}", label_visibility="collapsed")
-        st.write("<h5 style='text-align: center; color: #000080; '>최대</h5>", unsafe_allow_html=True)
+        st.write('#### 쇼핑몰 고객 연간 소비액 예측')
+        met1,ans1,met2,emp1 = st.columns([4,1,4,10])
+        with met1:
+            st.metric(label="최소", value=f"${int(minspend)}", label_visibility="collapsed")
+            st.write("<h5 style='text-align: center; color: #000080; '>최소</h5>", unsafe_allow_html=True)
+        with ans1:
+            st.write("<h5 style='text-align: center; font-size: 50px; color: #000080;'><strong>~</strong></h5>", unsafe_allow_html=True)
+        with met2:
+            st.metric(label="최대", value=f"${int(maxspend)}", label_visibility="collapsed")
+            st.write("<h5 style='text-align: center; color: #000080; '>최대</h5>", unsafe_allow_html=True)
+    except:
+        st.write("<h5 style=' font-size: 25px; color: #000080;'><strong>조회 할 수 없는 데이터입니다.</strong></h5>", unsafe_allow_html=True)
 
 empty1,col1 ,empty2= st.columns([3, 11.7, 3])
 with col1:    
@@ -209,3 +221,4 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+# %%
