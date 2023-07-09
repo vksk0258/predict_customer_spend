@@ -136,7 +136,7 @@ with col3:
             st.metric(label="최대", value=f"${int(maxspend)}", label_visibility="collapsed")
             st.write("<h5 style='text-align: center; color: #000080; '>최대</h5>", unsafe_allow_html=True)
     except:
-        st.write("<h5 style=' font-size: 25px; color: #000080;'><strong>조회 할 수 없는 데이터입니다.</strong></h5>", unsafe_allow_html=True)
+        st.write("<h5 style=' font-size: 22px; color: #000080;'><strong>조회 할 수 없는 데이터입니다.</strong></h5>", unsafe_allow_html=True)
 
 empty1,col1 ,empty2= st.columns([3, 11.7, 3])
 with col1:    
