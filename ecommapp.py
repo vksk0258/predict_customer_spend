@@ -155,7 +155,7 @@ with col1:
 
     # 막대 그래프 생성
     bar_chart = alt.Chart(data).mark_bar().encode(
-        x=alt.X('Value:Q', title='상대 값', scale=alt.Scale(domain=(0, 0.8))),  # x축 변경 및 막대의 범위 축소
+        x=alt.X('Value:Q', title='중요도', scale=alt.Scale(domain=(0, 0.8))),  # x축 변경 및 막대의 범위 축소
         y=alt.Y('Variable:N', sort=None, title=None, axis=alt.Axis(labelFontSize=11, labelPadding=10, labelColor='black')),  # y축 타이틀 제거 및 칸 간격 조정
         color=alt.Color('Variable:N', legend=None),
     ).properties(
@@ -171,7 +171,7 @@ with col1:
         fontSize=14,
         color='black',  # 텍스트 색상을 검은색으로 설정
     ).encode(
-        x=alt.X('Value:Q', title='상대 값'),
+        x=alt.X('Value:Q'),
         y=alt.Y('Variable:N', sort=None, title=None),
         text=alt.Text('Value:Q', format='.2f'),
     ).properties(
