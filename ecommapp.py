@@ -133,7 +133,7 @@ with col3:
     except:
         st.write("<h5 style=' font-size: 22px; color: #000080;'><strong>조회 할 수 없는 데이터입니다.</strong></h5>", unsafe_allow_html=True)
 
-empty1,col1 ,empty2= st.columns([1, 4.2, 1.3])
+empty1,col1 ,empty2= st.columns([3.1, 12, 4])
 with col1:    
     st.markdown("----")
     st.markdown("## Data Analysis")
