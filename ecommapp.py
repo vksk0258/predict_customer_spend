@@ -19,50 +19,34 @@ st.set_page_config(layout="wide")
 st.markdown(
     """
 <style>
-[data-testid="stMetricValue"] {
-    font-size: 37px;
-    color: #000080;
-    font-weight : bold;
-    text-align: center;
-}
+    [data-testid="stMetricValue"] {
+        font-size: 37px;
+        color: #000080;
+        font-weight : bold;
+        text-align: center;
+    }
 """,
     unsafe_allow_html=True,
 )
 
-
-st.markdown(
-    """
-    <style>
-    .slider-1jnYvQ .rc-slider-track {
-        background-color: blue !important;
-    }
-    .slider-1jnYvQ .rc-slider-handle {
-        border-color: blue !important;
-        box-shadow: 0 0 0 2px blue !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 st.markdown("""
     <style>
-    .css-15zrgzn {display: none}
-    .css-eczf16 {display: none}
-    .css-jn99sy {display: none}
+        .css-15zrgzn {display: none}
+        .css-eczf16 {display: none}
+        .css-jn99sy {display: none}
     </style>
     """, unsafe_allow_html=True)
 
 st.markdown("""
-        <style>
-               .block-container {
-                    padding-top: 0rem;
-                    padding-bottom: 0rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
+     <style>
+        .block-container {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            padding-left: 5rem;
+            padding-right: 5rem;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 
 
@@ -212,5 +196,3 @@ with col2:
     col1,col2 = st.columns([2,1])
     with col2:
         st.image("dk.png",width=150)
-
-# %%
