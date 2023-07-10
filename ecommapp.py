@@ -53,13 +53,24 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
+st.markdown("""
+        <style>
+               .block-container {
+                    padding-top: 0rem;
+                    padding-bottom: 0rem;
+                    padding-left: 5rem;
+                    padding-right: 5rem;
+                }
+        </style>
+        """, unsafe_allow_html=True)
+
+
 
 # %%
 # Header
 empty1, head1, empty2= st.columns([3, 9.7, 5])
 
 with head1:
-    st.markdown("#")
     st.write("<h5 style='font-size: 32px; font-weight : bold; text-align: center;'>쇼핑몰 고객 연간 소비액 예측 모델</h5>", unsafe_allow_html=True)
 
 # %%
@@ -202,23 +213,4 @@ with col2:
     with col2:
         st.image("dk.png",width=150)
 
-
-# 스크롤을 숨기는 높이를 조정하여 스크롤이 보이지 않도록 함
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    .main {
-        flex: 1;
-        overflow-y: hidden;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 # %%
